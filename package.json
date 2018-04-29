@@ -1,0 +1,24 @@
+{
+  "name": "hangman",
+  "version": "1.0.0",
+  "description": "Designing a Hangman-style game for Node.",
+  "main": "letter.js",
+  "dependencies": {
+    "open-color": "^1.6.3",
+    "prompt": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guiguipp/node-hangman.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guiguipp/node-hangman/issues"
+  },
+  "homepage": "https://github.com/guiguipp/node-hangman#readme"
+}
