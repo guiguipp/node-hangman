@@ -18,25 +18,29 @@ on each letter object (the second function defined in Letter.js)
 
 function Word(word) {
     this.split = function(word) {
-        // split the word
+        // split the word into an array of letters
         splitWord = word.split("");
-        // push every letter from the word in arrayOfLetterObj
-        splitWord.forEach(function(e){
-            tempArray = new Letter(e);
-            arrayOfLetterObj.push(tempArray);
-        });
+        // pass every letter to the constructor to create Letter objects, pushed in arrayOfLetterObj
+        for (let i = 0; i < splitWord.length; i++) {
+            let char = new Letter(splitWord[i])
+            arrayOfLetterObj.push(char);
+        } 
         return arrayOfLetterObj;
     }
     this.string = function() {
-        // run the split method on input
+        // call the split method on input
         this.split(word);
-        // then for each letter of input, push value from Letter method in array
+        // console.log("tempArray[1].charToDisplay: " + arrayOfLetterObj[1].hiddenChar);
+
+        // then for each letter of random word, push value from Letter method in array
+        charToString = [];
             for (let i = 0; i < arrayOfLetterObj.length; i++) {
-                charToString.push(arrayOfLetterObj[i].reveal());                
+                charToString.push(arrayOfLetterObj[i].reveal());                            
             }
-            console.log("current state of the riddle: " + charToString.join(" "))            
+            console.log("\n" + charToString.join(" ") + "\n")
+            // should be the "char to display" joined
         } 
-    this.checkLetters = function(char) {
+    this.checkLetters = function(char) { 
         for (let i = 0; i < arrayOfLetterObj.length; i++) {
             arrayOfLetterObj[i].test(char);
                 }

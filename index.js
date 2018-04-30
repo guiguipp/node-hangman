@@ -18,7 +18,7 @@ wordToGuess = new Word(wordToGuess);
 // console.log("wordToGuess.split(): " + wordToGuess.split(wordToGuess));
 
 
-console.log("wordToGuess.string(): " + wordToGuess.string(wordToGuess));
+console.log("wordToGuess.string(): " + wordToGuess.string());
 
 
 const validInput = /^[a-z\u00E0-\u00FC]{1}$/i;
@@ -43,9 +43,9 @@ function askLetter(){
     .then(function(r) {
         if (validInput.test(r.letter)) { 
         // console.log(`${r.letter} is a valid input\n`);
-        letter = r.letter;
-        console.log("Called in index.js: " + wordToGuess.checkLetters(letter));
-        // return letter;
+        console.log("Called after letter is entered: " + wordToGuess.checkLetters(r.letter));  
+        console.log("wordToGuess.string(): " + wordToGuess.string());
+      
         }
         else {
         console.log(`Sorry, "${r.letter}" is not a valid input\nPlease enter a single letter! :)`);

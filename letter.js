@@ -11,14 +11,14 @@ function Letter(setValue) {
             // console.log("loggin input: " + playerInput);
             // console.log("loggin this.isGuessed: " + this.isGuessed)
             // console.log("this.hidden char in show true: " + this.hiddenChar);
-            console.log(this.hiddenChar);
+            // console.log(this.hiddenChar);
             return this.hiddenChar;
         }
         else {
             // console.log(`Boolean still shows false: ${this.isGuessed} + ${setValue} + ${playerInput} + ${this.hiddenChar}`);
             var placeHolder = "_";
-            console.log(placeHolder);
-            return this.hiddenChar;
+            // console.log(placeHolder);
+            return placeHolder;
         }
     },
     this.test = function(playerInput) {
