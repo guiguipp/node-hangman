@@ -4,6 +4,7 @@ let arrayOfLetterObj = [];
 let charToString = [];
 let tempArray = [];
 let lettersEntered = [];
+
 /*
 Word.js: The constructor should define:
 An array of new Letter objects representing the letters of the underlying word
@@ -42,7 +43,6 @@ function Word(word) {
             for (let i = 0; i < arrayOfLetterObj.length; i++) {
                 charToString.push(arrayOfLetterObj[i].reveal());                            
             }
-            // console.log("\n" + charToString.join(" ") + "\n")
             // should be the "char to display" joined
             return charToString.join(" ")
         } 
@@ -50,7 +50,12 @@ function Word(word) {
         for (let i = 0; i < arrayOfLetterObj.length; i++) {
             arrayOfLetterObj[i].test(char);
                 }
-                lettersEntered.push(char)
+                if (lettersEntered.includes(char)) {
+                    console.log("You already tried that letter. Try another!");
+                }
+                else {
+                    lettersEntered.push(char)
+                }
                 return lettersEntered;
             }
         }  
@@ -59,6 +64,6 @@ function Word(word) {
 // testing.split(testing)
 // testing.string();
 // testing.checkLetters(testing);
-
-
-module.exports = Word;
+module.exports = {
+    Word
+}

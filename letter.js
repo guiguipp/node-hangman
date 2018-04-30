@@ -18,7 +18,7 @@ function Letter(setValue) {
         }
         else {
             // console.log(`Boolean still shows false: ${this.isGuessed} + ${setValue} + ${playerInput} + ${this.hiddenChar}`);
-            charDisplayed = "_";
+            charDisplayed = "_";            
             // console.log(placeHolder);
             return charDisplayed;
         }
@@ -33,7 +33,7 @@ function Letter(setValue) {
         else {
             // console.log(`--- Guessed wrong. ${playerInput} compare to ${this.hiddenChar} ---`);
             this.reveal();
-            this.isGuessed = false;
+            // this.isGuessed = false;
         }
     }
 }
