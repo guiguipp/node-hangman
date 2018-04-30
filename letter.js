@@ -7,19 +7,11 @@ function Letter(setValue) {
     this.reveal = function(playerInput){
         var charDisplayed;
         if (this.isGuessed) {
-            // console.log(`If you see this, "this.isGuessed" = true (=> ${this.isGuessed})`);
-            // console.log("loggin this.hiddenChar " + this.hiddenChar);
-            // console.log("loggin input: " + playerInput);
-            // console.log("loggin this.isGuessed: " + this.isGuessed)
-            // console.log("this.hidden char in show true: " + this.hiddenChar);
-            // console.log(this.hiddenChar);
             charDisplayed = this.hiddenChar;
             return charDisplayed;
         }
         else {
-            // console.log(`Boolean still shows false: ${this.isGuessed} + ${setValue} + ${playerInput} + ${this.hiddenChar}`);
             charDisplayed = "_";            
-            // console.log(placeHolder);
             return charDisplayed;
         }
     },

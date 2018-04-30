@@ -65,5 +65,7 @@ function Word(word) {
 // testing.string();
 // testing.checkLetters(testing);
 module.exports = {
-    Word
+    Word,
+    charToString,
+    arrayOfLetterObj
 }
