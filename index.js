@@ -9,6 +9,7 @@ Tried prompt. Has 2 fatal flaws:
 const Word = values.Word;
 let charToString = values.charToString;
 let arrayOfLetterObj = values.arrayOfLetterObj;
+let lettersEntered = values.lettersEntered;
 let attempts = 10;
 let randomWordObj
 let wordToGuess;
@@ -32,14 +33,16 @@ first attempt at regex. Tests for:
 
 function resetGameParam(){
     if (wordToGuess != undefined) {
-        console.log("wordToGuess.string: " + wordToGuess.string());
-        
-        
-        
-        charToString = [];
-        wordToGuess.string("_") = 0;
-        // console.log("wordToGuess.string now: " + wordToGuess.string());
+        for (let i = 0; i < arrayOfLetterObj.length; i++) {
+            arrayOfLetterObj[i].isGuessed = false; // resets the flags
+        }
+        /* I do not manage to reset all the value from my initial setup 
+        which is why my game is truck in a loop after a win */
+
+        /* I think it's due to how I define the word to guess (which should probably be
+        based on wordToGuessFren, not wordToGuess?) */
     }
+    attempts = 10;
     randomWordObj = verbs.verbArray[Math.floor(Math.random()*verbs.verbArray.length)]; // generate random word to guess
     wordToGuess = randomWordObj.frenchTrans; // the word to guess is in French, this is its stored value
     wordToGuessEng = randomWordObj.englishTrans; // English translation of the word to guess (to be used in key or as hint?)
@@ -47,6 +50,9 @@ function resetGameParam(){
     
     console.log("\nGuess what is the French for: " + colors.blue(wordToGuessEng) + "\n");
     wordToGuess = new Word(wordToGuess);
+    console.log("après new word" + arrayOfLetterObj[1]);
+
+    wordToGuess.string();
     console.log(`${wordToGuess.string()}\n`);
 } 
 
@@ -61,7 +67,7 @@ function askLetter(){
     .then(function(r) {
         if (validInput.test(r.letter)) { 
         // console.log(`${r.letter} is a valid input\n`);
-        console.log(`\nYour guesses so far: ${wordToGuess.checkLetters(r.letter)}\n`);  // riddle is not updating if this is not there
+        console.log(`\nGuesses so far: ${wordToGuess.checkLetters(r.letter)}\n`);  // riddle is not updating if this is not there
         console.log(`\n${wordToGuess.string()}\n`);
         gameLogic();
         }
@@ -98,11 +104,9 @@ function anotherGame(){
         name: "again"
         }
     ])
-    .then(function(choice) {
-        console.log(choice.again);
-        
+    .then(function(choice) {        
         if (choice.again == "YES") {
-            console.log("\nOkay then!");
+            console.log("\nOkay then!\n");
             resetGameParam();
             gameLogic()
         }

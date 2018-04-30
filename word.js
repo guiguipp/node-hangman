@@ -39,7 +39,7 @@ function Word(word) {
         // call the split method on input
         this.split(word);
         // then for each letter of random word, push value from Letter method in array
-        charToString = [];
+        charToString = [];            
             for (let i = 0; i < arrayOfLetterObj.length; i++) {
                 charToString.push(arrayOfLetterObj[i].reveal());                            
             }
@@ -67,5 +67,6 @@ function Word(word) {
 module.exports = {
     Word,
     charToString,
-    arrayOfLetterObj
+    arrayOfLetterObj,
+    lettersEntered,
 }
