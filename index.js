@@ -1,6 +1,5 @@
 let Word = require("./word.js") //
 
-
 const inquirer = require('inquirer'); 
 /* 
 Tried prompt. Has 2 fatal flaws: 

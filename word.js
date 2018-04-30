@@ -2,6 +2,7 @@
 let Letter = require("./letter.js") //
 let arrayOfLetterObj = [];
 let charToString = [];
+let tempArray = [];
 /*
 Word.js: The constructor should define:
 
@@ -20,52 +21,30 @@ function Word(word) {
     this.split = function (word) {
         splitWord = word.split("");
         splitWord.forEach(function(e){
-            let tempArray = new Letter(e);
+            tempArray = new Letter(e);
             arrayOfLetterObj.push(tempArray);
         });
         return arrayOfLetterObj;
     }
     this.string = function () {
+            for (let i = 0; i < arrayOfLetterObj.length; i++) {
+                // console.log(arrayOfLetterObj[i].hiddenChar);
+                charToString.push(arrayOfLetterObj[i].hiddenChar);
+                 }
+            console.log(charToString.join(" "));
+        } 
+    this.checkLetters = function(char) {
         for (let i = 0; i < arrayOfLetterObj.length; i++) {
-            // console.log(arrayOfLetterObj[i].hiddenChar);
-            charToString.push(arrayOfLetterObj[i].hiddenChar);
-        }
-        console.log(charToString.join(" "));
-    } 
-    this.check = function(array){
-        for (let i = 0; i < array.length; i++) {
-            let letterToCheck = new Letter(i)
-        }
-    } 
-    this.checkLetters = function(word) {
-        word = new Letter() 
-    }
-}  
+            tempArray.test(char);
+            // console.log(arrayOfLetterObj.test(char));
+                }
+            }
+        }  
 
+// var testing = new Word("bac")
+// testing.split("bac")
+// testing.string();
+// testing.checkLetters("c");
 
-var testing = new Word("bac")
-testing.split("bac")
-testing.string()
-// testing.string("really")
-// console.log(wordInArray);
-// testing.check("anything")
-
-// console.log(testing);
-
-// function splitting(word){ 
-//     arrayedWord = word.split("");
-//     return arrayedWord;    
-// }
-// var testing = splitting("testing")
-// console.log(testing);
-// console.log(Object.getOwnPropertyNames(testing))
-// console.log(testing);
-// console.log(testing.split);
-
-
-// console.log(testing.split("testing"))
- 
-// console.log(Object.values(testing));
-// console.log(testing.arrayedWord);
 
 module.exports = Word;
