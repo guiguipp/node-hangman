@@ -16,13 +16,10 @@ console.log(wordToGuess + " = " + wordToGuessTrans);
 wordToGuess = new Word(wordToGuess);
 // console.log("wordToGuess: " + wordToGuess);
 // console.log("wordToGuess.split(): " + wordToGuess.split(wordToGuess));
-
-
 console.log("wordToGuess.string(): " + wordToGuess.string());
 
 
 const validInput = /^[a-z\u00E0-\u00FC]{1}$/i;
-let letter; 
 /*
 first attempt at regex. Tests for: 
 - characters + accented characters (because: French), 
@@ -43,9 +40,8 @@ function askLetter(){
     .then(function(r) {
         if (validInput.test(r.letter)) { 
         // console.log(`${r.letter} is a valid input\n`);
-        console.log("Called after letter is entered: " + wordToGuess.checkLetters(r.letter));  
+        console.log("Letters entered: " + wordToGuess.checkLetters(r.letter));  // riddle is not updating if this is not there
         console.log("wordToGuess.string(): " + wordToGuess.string());
-      
         }
         else {
         console.log(`Sorry, "${r.letter}" is not a valid input\nPlease enter a single letter! :)`);
@@ -54,7 +50,6 @@ function askLetter(){
     });
     }
     
-    // while (riddle.indexOf("_") != -1) {
+    // while (wordToGuess.indexOf("_") != -1) {
     //     askLetter();
     // }
-
