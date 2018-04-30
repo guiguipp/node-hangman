@@ -4,31 +4,33 @@
 function Letter(setValue) {
     this.hiddenChar = setValue,
     this.isGuessed = false,
-    this.show = function(playerInput){
+    this.reveal = function(playerInput){
         if (this.isGuessed === true) {
-            console.log(`If you see this, "this.isGuessed" = true (=> ${this.isGuessed})`);
-            console.log("loggin this.hiddenChar " + this.hiddenChar);
-            console.log("loggin input: " + playerInput);
-            console.log("loggin this.isGuessed: " + this.isGuessed)
-            console.log("this.hidden char in show true: " + this.hiddenChar);
+            // console.log(`If you see this, "this.isGuessed" = true (=> ${this.isGuessed})`);
+            // console.log("loggin this.hiddenChar " + this.hiddenChar);
+            // console.log("loggin input: " + playerInput);
+            // console.log("loggin this.isGuessed: " + this.isGuessed)
+            // console.log("this.hidden char in show true: " + this.hiddenChar);
+            console.log(this.hiddenChar);
             return this.hiddenChar;
         }
         else {
-            console.log(`Boolean still shows false: ${this.isGuessed} + ${setValue} + ${playerInput} + ${this.hiddenChar}`);
-            this.hiddenChar = "_";            
+            // console.log(`Boolean still shows false: ${this.isGuessed} + ${setValue} + ${playerInput} + ${this.hiddenChar}`);
+            var placeHolder = "_";
+            console.log(placeHolder);
             return this.hiddenChar;
         }
     },
     this.test = function(playerInput) {
         if (playerInput === this.hiddenChar) {
-            console.log(`If you see this, it means that the user guessed the character right. ${playerInput} compare to ${this.hiddenChar}`);
+            // console.log(`!!! Guessed right. ${playerInput} compare to ${this.hiddenChar} !!!`);
             this.isGuessed = true;
-            console.log(`(new value of the boolean: ${this.isGuessed})`);
-            
+            this.reveal()                        
             return this.isGuessed;
         }
         else {
-            console.log(`If you see this, it means that the user did not guess the character. ${playerInput} compare to ${this.hiddenChar}`);
+            // console.log(`--- Guessed wrong. ${playerInput} compare to ${this.hiddenChar} ---`);
+            this.reveal();
             this.isGuessed = false;
         }
     }

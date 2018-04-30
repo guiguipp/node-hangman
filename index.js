@@ -1,5 +1,4 @@
-let Word = require("./word.js") //
-
+const Word = require("./word.js") //
 const inquirer = require('inquirer'); 
 /* 
 Tried prompt. Has 2 fatal flaws: 
@@ -13,8 +12,14 @@ let randomWordObj = verbs.verbArray[Math.floor(Math.random()*verbs.verbArray.len
 
 let wordToGuess = randomWordObj.frenchTrans; // the word to guess is in French, this is its stored value
 let wordToGuessTrans = randomWordObj.englishTrans; // English translation of the word to guess (to be used in key or as hint?)
-// console.log(wordToGuess + " = " + wordToGuessTrans);
-let maskedWord = new Word;
+console.log(wordToGuess + " = " + wordToGuessTrans);
+wordToGuess = new Word(wordToGuess);
+// console.log("wordToGuess: " + wordToGuess);
+// console.log("wordToGuess.split(): " + wordToGuess.split(wordToGuess));
+
+
+console.log("wordToGuess.string(): " + wordToGuess.string(wordToGuess));
+
 
 const validInput = /^[a-z\u00E0-\u00FC]{1}$/i;
 let letter; 
@@ -39,7 +44,8 @@ function askLetter(){
         if (validInput.test(r.letter)) { 
         // console.log(`${r.letter} is a valid input\n`);
         letter = r.letter;
-        return letter;
+        console.log("Called in index.js: " + wordToGuess.checkLetters(letter));
+        // return letter;
         }
         else {
         console.log(`Sorry, "${r.letter}" is not a valid input\nPlease enter a single letter! :)`);
@@ -47,4 +53,8 @@ function askLetter(){
         }
     });
     }
+    
+    // while (riddle.indexOf("_") != -1) {
+    //     askLetter();
+    // }
 
